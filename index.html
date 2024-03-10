@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Overlay</title>
+    <title>Stormguard</title> <!-- Titel geändert zu "Stormguard" -->
     <style>
         body {
             margin: 0;
@@ -16,6 +16,13 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+        }
+        #logo {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 50px; /* Anpassen der Breite des Logos */
+            height: auto;
         }
         #video-container {
             position: relative;
@@ -30,6 +37,7 @@
     </style>
 </head>
 <body>
+    <img id="logo" src="./logo.png" alt="Logo"> <!-- Logo oben rechts in der Ecke hinzugefügt -->
     <div id="video-container">
         <video id="intro-video" controls>
             <source src="intro.mp4" type="video/mp4">
