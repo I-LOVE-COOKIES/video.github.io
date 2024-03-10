@@ -4,6 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stormguard</title> <!-- Titel geändert zu "Stormguard" -->
+    <script>
+window.onload = function() {
+    // Überprüfen, ob ein Adblocker aktiviert ist
+    if (typeof(someAdBlockingLibrary) !== 'undefined') {
+        window.location.href = './block.html'; // Umleitung auf block.html, wenn ein Adblocker erkannt wird
+    }
+    
+    // Überprüfen, ob ein VPN verwendet wird
+    fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(data => {
+        const ipAddress = data.ip;
+        fetch(`https://ipapi.co/${ipAddress}/?key=test`)
+        .then(response => response.json())
+        .then(data => {
+            const isVPN = data.error === "not_found";
+            if (isVPN) {
+                window.location.href = './block.html'; // Umleitung auf block.html, wenn ein VPN erkannt wird
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    })
+    .catch(error => console.error('Error:', error));
+};
+</script>
     <style>
         body {
             margin: 0;
