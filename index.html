@@ -16,13 +16,14 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            position: relative; /* Stellt sicher, dass das Logo relativ zum body positioniert wird */
         }
         #logo {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 50px; /* Anpassen der Breite des Logos */
-            height: auto;
+            top: 10px; /* Abstand vom oberen Rand */
+            left: 10px; /* Abstand vom linken Rand */
+            max-width: 20%; /* Maximale Breite des Logos */
+            height: auto; /* Höhe automatisch anpassen */
         }
         #video-container {
             position: relative;
@@ -37,7 +38,7 @@
     </style>
 </head>
 <body>
-    <img id="logo" src="./logo.png" alt="Logo"> <!-- Logo oben rechts in der Ecke hinzugefügt -->
+    <img id="logo" src="./logo.png" alt="Logo"> <!-- Logo oben links in der Ecke hinzugefügt -->
     <div id="video-container">
         <video id="intro-video" controls>
             <source src="intro.mp4" type="video/mp4">
