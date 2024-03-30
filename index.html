@@ -5,30 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stormguard</title> <!-- Titel geändert zu "Stormguard" -->
     <script>
-window.onload = function() {
-    // Überprüfen, ob ein Adblocker aktiviert ist
-    if (typeof(someAdBlockingLibrary) !== 'undefined') {
-        window.location.href = './block.html'; // Umleitung auf block.html, wenn ein Adblocker erkannt wird
-    }
-    
-    // Überprüfen, ob ein VPN verwendet wird
-    fetch('https://api.ipify.org?format=json')
-    .then(response => response.json())
-    .then(data => {
-        const ipAddress = data.ip;
-        fetch(`https://ipapi.co/${ipAddress}/?key=test`)
-        .then(response => response.json())
-        .then(data => {
-            const isVPN = data.error === "not_found";
-            if (isVPN) {
-                window.location.href = './block.html'; // Umleitung auf block.html, wenn ein VPN erkannt wird
+        window.onload = function() {
+            // Überprüfen, ob ein Adblocker aktiviert ist
+            if (typeof(someAdBlockingLibrary) !== 'undefined') {
+                window.location.href = './block.html'; // Umleitung auf block.html, wenn ein Adblocker erkannt wird
             }
-        })
-        .catch(error => console.error('Error:', error));
-    })
-    .catch(error => console.error('Error:', error));
-};
-</script>
+            
+            // Überprüfen, ob ein VPN verwendet wird
+            fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                const ipAddress = data.ip;
+                fetch(`https://ipapi.co/${ipAddress}/?key=test`)
+                .then(response => response.json())
+                .then(data => {
+                    const isVPN = data.error === "not_found";
+                    if (isVPN) {
+                        window.location.href = './block.html'; // Umleitung auf block.html, wenn ein VPN erkannt wird
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            })
+            .catch(error => console.error('Error:', error));
+        };
+    </script>
     <style>
         body {
             margin: 0;
@@ -70,5 +70,54 @@ window.onload = function() {
             Your browser does not support the video tag.
         </video>
     </div>
+
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+      {
+      "symbols": [
+        [
+          "AMEX:IWY|1M"
+        ]
+      ],
+      "chartOnly": false,
+      "width": 550,
+      "height": 400,
+      "locale": "en",
+      "colorTheme": "light",
+      "autosize": false,
+      "showVolume": false,
+      "showMA": false,
+      "hideDateRanges": false,
+      "hideMarketStatus": false,
+      "hideSymbolLogo": false,
+      "scalePosition": "right",
+      "scaleMode": "Normal",
+      "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+      "fontSize": "10",
+      "noTimeScale": false,
+      "valuesTracking": "1",
+      "changeMode": "price-and-percent",
+      "chartType": "area",
+      "maLineColor": "#2962FF",
+      "maLineWidth": 1,
+      "maLength": 9,
+      "backgroundColor": "rgba(248, 187, 208, 1)",
+      "lineWidth": 2,
+      "lineType": 0,
+      "dateRanges": [
+        "1d|1",
+        "1m|30",
+        "3m|60",
+        "12m|1D",
+        "60m|1W",
+        "all|1M"
+      ]
+    }
+      </script>
+    </div>
+    <!-- TradingView Widget END -->
 </body>
 </html>
