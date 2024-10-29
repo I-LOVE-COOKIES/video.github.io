@@ -26,7 +26,7 @@
     }
 
     .content img {
-        width: 300px; /* Passe diesen Wert nach Bedarf an */
+        width: 200; /* Passe diesen Wert nach Bedarf an */
         height: auto;
     }
 </style>
