@@ -1,0 +1,32 @@
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    /* Video-Hintergrund */
+    .bg-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+    }
+
+    /* Inhalt über dem Video */
+    .content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .content img {
+        width: 300px; /* Passe diesen Wert nach Bedarf an */
+        height: auto;
+    }
+</style>
